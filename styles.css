@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Yatra+One&display=swap');
+
+
+html {
+    background-color: #6FD5F5;
+    font-family: 'Architects Daughter', cursive;
+}
+
+#scores {
+    display: flex;
+    justify-content: space-around; 
+}
+
+
+
+
+img.selection {
+    width: 5%;
+    height: auto;
+    padding: 0px 30px;
+    transition: transform .3s;
+}
+
+img {
+    width: 10%;
+    height: auto;
+}
+
+#icons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.players{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;  
+    text-align: center;
+    align-items: center;   
+}
+
+.heading {   
+    font-size: 50px;
+    
+}
+
+.score {
+    font-size: 80px;
+    border: 3px solid black;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    margin-top: 5px;
+}
+
+
+h3 {
+    text-align: center;
+    font-size: 50px;
+}
+
+img.selection:hover {
+    transform: scale(1.2);
+}
+
+img.selection:active {
+    transform: translateY(1px);
+    opacity: 70%;
+
+}
+
+
+
+#cpuChoice {
+    
+    display: flex;
+    justify-content: center;
+}
+
+
+#playerChoice {
+    
+    display: flex;
+    justify-content: center;
+}
+
+
+#playerIcon{
+    transition: transform 0.5s;  
+}
+
+
+#cpuIcon{
+    transition: transform 0.5s;
+}
+
+.spin {
+    transform: rotate(360deg);
+}
+
+
+
+button {
+    padding: 15px 50px;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(255, 72, 72);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-top: 20px;
+    font-family: 'Architects Daughter', cursive;
+}
+
+button:active {
+    background-color: red;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
