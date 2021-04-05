@@ -13,9 +13,9 @@ function computerPlay(){
 }
 
 
-function playRound (playerSelection, computerSelection){
+function determineRoundWinner (playerSelection, computerSelection){
  
-
+    //Rock
     if(playerSelection == "rock"){
         if(computerSelection == "paper"){
             return "You lose! Paper beats Rock!";
@@ -27,6 +27,7 @@ function playRound (playerSelection, computerSelection){
             return "It's a tie!";
         }
     }
+    //Paper
     else if(playerSelection == "paper"){
         if(computerSelection == "rock"){
             return "You win! Paper beats Rock!";
@@ -38,7 +39,8 @@ function playRound (playerSelection, computerSelection){
             return "It's a tie!";
         }        
     }
-    else{ //scissors
+    //Scissors
+    else{ 
         if(computerSelection == "paper"){
             return "You win! Scissors beats Paper!";
         }
@@ -55,26 +57,31 @@ function playRound (playerSelection, computerSelection){
 function playGame(){
     let playerSelection, computerSelection, results;
 
+    //Get player selections
     playerSelection = this.getAttribute('id');
     computerSelection = computerPlay();
+
+    //Change icons to reflect player selections
     changePlayerIcon(playerSelection);
     changeCpuIcon(computerSelection);
-    results = playRound(playerSelection, computerSelection);
+
+    //Get and display results
+    results = determineRoundWinner(playerSelection, computerSelection);
     resultDisplay.textContent = results;
+
     if(results.includes("win")){
         playerScore++;
-        console.log("Player: " + playerScore + " Computer: " + computerScore);
         playerScoreDisplay.textContent = playerScore;
     }
     else if(results.includes("lose")){
         computerScore++;
-        console.log("Player: " + playerScore + " Computer: " + computerScore);
         computerScoreDisplay.textContent = computerScore;
     }
     else{
         console.log("Player: " + playerScore + " Computer: " + computerScore);
     }
 
+    //Checks for a winner
     if(computerScore == 5 || playerScore == 5){
         if(computerScore == 5){
             resultDisplay.textContent = "Oh no! Computer is the final winner!";
@@ -83,6 +90,7 @@ function playGame(){
             resultDisplay.textContent = "Congrats! You are the final winner!";
         }
 
+        //Remove selection icons to prevent gameplay from continue and create "play again" button
         selections.forEach(item => item.remove());
         let reset = document.createElement('button');
         reset.addEventListener('click', resetGame);
@@ -120,7 +128,7 @@ function changePlayerIcon(selection){
 }
 
 function resetGame(){
-
+    //Recreate and initialize icon variables
     const rock = document.createElement('img');
     const paper = document.createElement('img');
     const scissors = document.createElement('img');
@@ -141,8 +149,8 @@ function resetGame(){
     selections = document.querySelectorAll('.selection');
     selections.forEach(item => item.addEventListener('click', playGame))
 
+    //Remove the "play again button" to make space for selection icons
     document.querySelector('button').remove();
-
 
     cpuIcon.src = "question.png";
     playerIcon.src = "question.png";
@@ -156,21 +164,16 @@ function resetGame(){
 
 }
 
-let playerScore, computerScore;
-playerScore = 0;
-computerScore = 0;
-
 
 const playerScoreDisplay = document.querySelector('#player');
 const computerScoreDisplay = document.querySelector('#computer');
 const resultDisplay = document.querySelector('#results');
-
-let selections = document.querySelectorAll('.selection');
 const icons = document.getElementById("icons");
 
+let selections = document.querySelectorAll('.selection');
 let cpuIcon = document.querySelector('#cpuIcon');
 let playerIcon = document.querySelector('#playerIcon')
-
+let playerScore = 0, computerScore = 0;
 
 selections.forEach(item => item.addEventListener('click', playGame))
 

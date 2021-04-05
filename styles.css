@@ -6,31 +6,11 @@ html {
     font-family: 'Architects Daughter', cursive;
 }
 
+
+/* Player headings and scores */
 #scores {
     display: flex;
     justify-content: space-around; 
-}
-
-
-
-
-img.selection {
-    width: 5%;
-    height: auto;
-    padding: 0px 30px;
-    transition: transform .3s;
-}
-
-img {
-    width: 10%;
-    height: auto;
-}
-
-#icons {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    
 }
 
 .players{
@@ -56,9 +36,24 @@ img {
 }
 
 
+img {
+    width: 10%;
+    height: auto;
+}
+
+/* Results */
 h3 {
     text-align: center;
     font-size: 50px;
+}
+
+
+/* Selection menu */
+img.selection {
+    width: 5%;
+    height: auto;
+    padding: 0px 30px;
+    transition: transform .3s;
 }
 
 img.selection:hover {
@@ -71,22 +66,20 @@ img.selection:active {
 
 }
 
+#icons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;  
+}
 
 
-#cpuChoice {
-    
+#choice {  
     display: flex;
     justify-content: center;
 }
 
 
-#playerChoice {
-    
-    display: flex;
-    justify-content: center;
-}
-
-
+/* Spin animation for user and cpu icons */
 #playerIcon{
     transition: transform 0.5s;  
 }
@@ -101,7 +94,7 @@ img.selection:active {
 }
 
 
-
+/* Play again button */
 button {
     padding: 15px 50px;
     font-size: 30px;
